@@ -1,0 +1,4 @@
+#Ignoring .a and .o files
+*.[ao]
+#Ignoring MSC
+
