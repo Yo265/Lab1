@@ -1,11 +1,11 @@
 #ifndef _FLAG_MASK_
 #define _FLAG_MASK_
 
-#define AOF 0	// Out of Range flag
-#define flag1 1	//
-#define flag2 2	//
-#define flag3 3	//
-#define flag4 4	//
+#define AOF 0	//Out of Range
+#define WC 1	//Wrong Command
+#define WF 2	//Wrong flag
+#define EWF 3	//Error writing to file
+#define ERF 4	//Error reading from file
 #define flag5 5	//
 #define flag6 6	//
 #define flag7 7	//
