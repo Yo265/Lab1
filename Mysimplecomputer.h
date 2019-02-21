@@ -5,8 +5,9 @@
 #include "Flagmask.h"
 #include "Commands.h"
 
+
+extern int F_reg;
 extern int mass[N];
-extern int registr;
 
 	/*Memory Function*/
 int sc_memoryInit(void);
