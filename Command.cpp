@@ -21,13 +21,31 @@ int checkCommand(int command){
 		command == MOVA   ||	command == MOVR   ||
 		command == MOVCA  ||	command == MOVCR   
 	)
-		return 1;
-	else
 		return 0;
+	else {
+		sc_regSet(WC,1);
+		return WC;
+        }
 }
 int sc_commandEncode(int command, int operand, int * value){
+	if (checkCommand(command)){
+		*(value) = *(value) & 0x0;
+		*(value) = *(value) | command;
+		*(value) = *(value) << 7;
+		*(value) = *(value) | operand;
+		return 0;
+}
+	else
+		return 1;
 	
 }
 int sc_commandDecode(int value, int * command, int * operand){
 
+	*(operand) = value & 0x7F;
+	value = value >> 7;
+	*(command) = value & 0x7F;
+	if (checkCommand(*command)){
+		return 0;			
+	}	
+return 1;
 }
