@@ -1,4 +1,6 @@
 #Ignoring .a and .o files
 *.[ao]
-#Ignorin MSC 
+#Ignoring  MSC 
 MSC
+#Ignoring temporary files
+*.bin
