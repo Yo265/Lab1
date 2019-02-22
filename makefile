@@ -11,17 +11,17 @@ MSC: test.o msc.a
 msc.a: test.o Command.o Memory.o Register.o
 	ar cr msc.a Command.o Memory.o Register.o
 	
-test.o: test.cpp
-	$(CC) $(CFLAGS) test.cpp
+test.o: test.c
+	$(CC) $(CFLAGS) test.c
 
-command.o: Command.cpp
-	$(CC) $(CFLAGS) Command.cpp 
+command.o: Command.c
+	$(CC) $(CFLAGS) Command.c
 
-memory.o: Memory.cpp
-	$(CC) $(CFLAGS) Memory.cpp
+memory.o: Memory.c
+	$(CC) $(CFLAGS) Memory.c
 
-registr.o: Register.cpp
-	$(CC) $(CFLAGS) Register.cpp
+registr.o: Register.c
+	$(CC) $(CFLAGS) Register.c
 
 clean:
 	rm -rf *.o *.a MSC
