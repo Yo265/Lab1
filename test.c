@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 int main(){
-	int tmp;
+	int tmp, commandtest,c , o;
 	sc_memoryInit();
 	sc_regInit();
 	printf("Setting the value 45 to 30 cells \n");
@@ -31,9 +31,14 @@ int main(){
 		printf("%d ", tmp);
 	}
 	printf("\n Checking the operation of the outgoing memory flag \n");
-//	sc_memorySet(1213, 45);
+	sc_memorySet(1213, 45);
 	sc_regGet(AOF, &tmp);
 	printf("Flag = %d", tmp);
 	sc_regSet(AOF, 0);
+	printf("\n Checking the command endecode function \n");
+	printf("%d ",sc_commandEncode(SUB,99,commandtest));
+	printf("\n Checking the command decode function \n");
+	sc_commandDecode(commandtest, &c, &d);
+	printf("\n Command = %d, Operand = %d", c, d);
 	return 0;
 }
