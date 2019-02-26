@@ -36,9 +36,9 @@ int main(){
 	printf("Flag = %d", tmp);
 	sc_regSet(AOF, 0);
 	printf("\n Checking the command endecode function \n");
-	printf("%d ",sc_commandEncode(SUB, 99,commandtest));
+	printf("%d ",sc_commandEncode(SUB, 99, &commandtest));
 	printf("\n Checking the command decode function \n");
-	sc_commandDecode(commandtest, &c, &d);
+	sc_commandDecode(commandtest, &c, &o);
 	printf("\n Command = %d, Operand = %d", c, o);
 	return 0;
 }

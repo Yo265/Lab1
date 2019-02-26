@@ -28,7 +28,7 @@ int checkCommand(int command){
         }
 }
 int sc_commandEncode(int command, int operand, int * value){
-	if (checkCommand(command)){
+	if (!checkCommand(command)){
 		*(value) = *(value) & 0x0;
 		*(value) = *(value) | command;
 		*(value) = *(value) << 7;
@@ -43,7 +43,7 @@ int sc_commandDecode(int value, int * command, int * operand){
 	*(operand) = value & 0x7F;
 	value = value >> 7;
 	*(command) = value & 0x7F;
-	if (checkCommand(*command)){
+	if (!checkCommand(*command)){
 		return 0;			
 	}	
 	return 1;
