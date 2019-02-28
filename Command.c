@@ -28,7 +28,8 @@ int checkCommand(int command){
         }
 }
 int sc_commandEncode(int command, int operand, int * value){
-	if (!checkCommand(command)){
+	if(operand < 128){
+		if (!checkCommand(command)){
 		*(value) = *(value) & 0x0;
 		*(value) = *(value) | command;
 		*(value) = *(value) << 7;
@@ -37,14 +38,20 @@ int sc_commandEncode(int command, int operand, int * value){
 }
 	else
 		return 1;
-	
+	}
+	sc_regSet(WO,1);
+	return WO;
 }
 int sc_commandDecode(int value, int * command, int * operand){
-	*(operand) = value & 0x7F;
-	value = value >> 7;
-	*(command) = value & 0x7F;
-	if (!checkCommand(*command)){
-		return 0;			
-	}	
-	return 1;
+	if(value >> 14 == 0){
+		*(operand) = value & 0x7F;
+		value = value >> 7;
+		*(command) = value & 0x7F;
+		if (!checkCommand(*command)){
+			return 0;			
+		}	
+		return 1;
+	}
+	sc_regSet(WC, 1);
+	return WC;
 }

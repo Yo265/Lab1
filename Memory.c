@@ -2,10 +2,10 @@
 #include "Mysimplecomputer.h"
 
 int mass[N];
-
+int i;
 
 int sc_memoryInit(){
-    for(int i = 0;i < N; i++)
+    for(i = 0;i < N; i++)
 		mass[i] = 0;
     return 0;
 }
