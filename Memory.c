@@ -46,12 +46,8 @@ int sc_memorySave(char* filename){
 
 int sc_memoryLoad(char *filename) {
 	FILE *file = fopen(filename, "rb");
-	if (file) {
-		fread(mass, sizeof(int), N, file);
-		fclose(file);
-		return 0;
-	}else{
-		sc_regSet(ERF,1);
-		return ERF;
-	}
+	fread(mass, sizeof(int), N, file);
+	fclose(file);
+	return 0;
+	
 }
